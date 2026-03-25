@@ -14,9 +14,8 @@ type AccordionItem = {
 
 export function Accordion({ className, accordions }: accordionProp) {
     if (accordions.length === 0) return (<p>No accordions provided.</p>);
-
+    
     return (
-
         <div>
             <BaseAccordion.Root type="single" className={className}>
                 {accordions.map((accordion, index) => (

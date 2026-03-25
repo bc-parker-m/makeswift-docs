@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import clsx from "clsx";
 
 
 type CardProps = {
@@ -8,6 +9,7 @@ type CardProps = {
   alt: string;
   heading: string;
   description: string;
+  layout?: "vertical" | "horizontal";
   link: { href: string; target?: "_blank" | "_self" };
   linkText: string;
 };
@@ -20,12 +22,30 @@ export function Card({
   alt,
   heading,
   description,
+  layout,
   link,
   linkText,
 }: CardProps) {
   return (
     <div className={className}>
-      {image && <Image src={image} alt={alt} objectFit="cover" fill />}
+            {/* Image */}
+      {image && (
+        <div
+          className={clsx(
+            "relative",
+            layout === "vertical" ? "w-full h-48" : "w-1/3 h-auto"
+          )}
+        >
+          <Image
+            src={image}
+            alt={alt}
+            fill
+            className="object-cover"
+          />
+        </div>
+      )}
+
+      {/* Content */}
       <div className="">
         <h3>{heading}</h3>
         <p>{description}</p>

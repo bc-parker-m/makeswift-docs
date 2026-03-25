@@ -6,6 +6,7 @@ import {
     TextArea,
     Link,
     Style,
+    Select,
 } from "@makeswift/runtime/controls";
 
 runtime.registerComponent(Card, {
@@ -26,5 +27,14 @@ runtime.registerComponent(Card, {
             defaultValue: "My description",
         }),
         link: Link({ label: "Link" }),
+        layout: Select({
+            label: "Layout",
+            options: [
+                { label: "Vertical", value: "vertical" },
+                { label: "Horizontal", value: "horizontal" },
+              
+            ],
+            defaultValue: "vertical",
+        })
     },
 });
