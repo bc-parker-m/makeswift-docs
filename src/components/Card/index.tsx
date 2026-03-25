@@ -9,6 +9,8 @@ type CardProps = {
   alt: string;
   heading: string;
   description: string;
+  headingStyle?: any
+  headingVariant?: "large" | "medium" | "small";
   layout?: "vertical" | "horizontal";
   link: { href: string; target?: "_blank" | "_self" };
   linkText: string;
@@ -25,10 +27,12 @@ export function Card({
   layout,
   link,
   linkText,
+  headingStyle,
+  headingVariant = "medium",
 }: CardProps) {
   return (
     <div className={className}>
-            {/* Image */}
+      {/* Image */}
       {image && (
         <div
           className={clsx(
@@ -47,7 +51,17 @@ export function Card({
 
       {/* Content */}
       <div className="">
-        <h3>{heading}</h3>
+        <h3
+          className={clsx(
+            {
+              large: "text-2xl font-bold",
+              medium: "text-lg font-semibold",
+              small: "text-sm font-medium",
+            }[headingVariant]
+          )}
+        >
+          {heading}
+        </h3>
         <p>{description}</p>
         <Link href={link.href} target={link.target}>
           {linkText}

@@ -21,6 +21,16 @@ runtime.registerComponent(Card, {
             defaultValue: "Description of the image",
         }),
         heading: TextInput({ label: "Heading", defaultValue: "My Heading" }),
+        headingStyle: Style(),
+        headingVariant: Select({
+            label: "Heading Style",
+            options: [
+                { label: "Large", value: "large" },
+                { label: "Medium", value: "medium" },
+                { label: "Small", value: "small" },
+            ],
+            defaultValue: "medium",
+        }),
         linkText: TextInput({ label: "Link text", defaultValue: "Read more" }),
         description: TextArea({
             label: "Description",
@@ -32,7 +42,7 @@ runtime.registerComponent(Card, {
             options: [
                 { label: "Vertical", value: "vertical" },
                 { label: "Horizontal", value: "horizontal" },
-              
+
             ],
             defaultValue: "vertical",
         })
